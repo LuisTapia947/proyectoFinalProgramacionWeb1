@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Especialidades Médicas</title>
+    <script src="../js/gestionarespecialidadesmedicasas.js" defer></script>
+    <link rel="stylesheet" href="../css/estilos7.css">
+</head>
+
+<body>
+    <h1>Gestión de Especialidades Médicas</h1>
+    <form id="formEspecialidad">
+        <label for="">Id Especialidad</label>
+        <input type="text" id="idEspecialidad" >
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" required></textarea>
+
+        <label for="estado">Estado:</label>
+        <select id="estado">
+            <option value="activo">Activo</option>
+            <option value="inactivo">Inactivo</option>
+        </select>
+
+        <label for="fechaCreacion">Fecha de Creación:</label>
+        <input type="date" id="fechaCreacion" required>
+
+        <button type="button" onclick="guardarEspecialidad()">Guardar</button>
+        <button type="button" onclick="editarEspecialidad()">editar</button>
+        <button type="button" onclick="eliminarEspecialidad()">eliminar</button>
+        <button type="button" onclick="limpiarFormulario()">Cancelar</button>
+    </form>
+
+</body>
+
+</html>

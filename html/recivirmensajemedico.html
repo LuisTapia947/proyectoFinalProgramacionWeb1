@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicación con el Paciente</title>
+   <link rel="stylesheet" href="../css/estilos9.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Comunicación con el Paciente</h1>
+
+        <!-- Lista de mensajes recibidos del paciente -->
+        <div id="messages-list">
+            <h2>Mensajes Recibidos</h2>
+            <ul id="message-list">
+                <!-- Los mensajes se cargarán aquí dinámicamente -->
+            </ul>
+        </div>
+
+        <!-- Responder a un mensaje -->
+        <div id="message-response" style="display:none;">
+            <h2>Responder al Mensaje</h2>
+            <form id="response-form">
+                <label for="response-id">ID de Mensaje:</label>
+                <input type="text" id="response-id" readonly required>
+
+                <label for="response-date">Fecha y Hora:</label>
+                <input type="text" id="response-date" readonly required>
+
+                <label for="response-content">Respuesta del Médico:</label>
+                <textarea id="response-content" name="response-content" rows="4" placeholder="Escribe tu respuesta..." required></textarea>
+
+                <button type="submit">Enviar Respuesta</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+    const messageListElement = document.getElementById('message-list');
+    const messageResponseSection = document.getElementById('message-response');
+    const responseForm = document.getElementById('response-form');
+
+    // Cargar mensajes desde localStorage
+    function loadMessages() {
+        const messages = JSON.parse(localStorage.getItem('messages')) || [];
+        displayMessages(messages);
+    }
+
+    // Mostrar mensajes en la lista
+    function displayMessages(messages) {
+        messageListElement.innerHTML = ''; // Limpiar lista
+        messages.forEach(message => {
+            if (message.status === 'no_leido') {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <strong>ID:</strong> ${message.id}<br>
+                    <strong>Remitente:</strong> ${message.sender}<br>
+                    <strong>Fecha:</strong> ${message.date}<br>
+                    <strong>Contenido:</strong> ${message.content.slice(0, 50)}...
+                `;
+                li.addEventListener('click', () => openMessage(message));
+                messageListElement.appendChild(li);
+            }
+        });
+    }
+
+    // Abrir un mensaje seleccionado
+    function openMessage(message) {
+        document.getElementById('response-id').value = message.id;
+        document.getElementById('response-date').value = new Date().toLocaleString();
+        messageResponseSection.style.display = 'block';
+
+        // Marcar mensaje como leído
+        message.status = 'leido';
+        saveMessages(); // Guardar cambios
+        loadMessages(); // Recargar lista
+    }
+
+    // Guardar mensajes en localStorage
+    function saveMessages() {
+        const messages = Array.from(messageListElement.querySelectorAll('li')).map(li => ({
+            id: li.dataset.id,
+            sender: li.dataset.sender,
+            recipient: li.dataset.recipient,
+            date: li.dataset.date,
+            content: li.dataset.content,
+            status: li.dataset.status,
+        }));
+        localStorage.setItem('messages', JSON.stringify(messages));
+    }
+
+    // Enviar respuesta
+    responseForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const responseContent = document.getElementById('response-content').value;
+        const responseMessage = {
+            id: 'RESP-' + Math.floor(Math.random() * 1000000),
+            sender: 'Dr. López (Médico)',
+            recipient: 'Paciente',
+            date: new Date().toLocaleString(),
+            content: responseContent,
+            status: 'no_leido',
+        };
+
+        // Guardar respuesta como un nuevo mensaje
+        const messages = JSON.parse(localStorage.getItem('messages')) || [];
+        messages.push(responseMessage);
+        localStorage.setItem('messages', JSON.stringify(messages));
+
+        alert('Respuesta enviada al paciente.');
+        responseForm.reset();
+        messageResponseSection.style.display = 'none';
+        loadMessages(); // Recargar mensajes
+    });
+
+    // Inicializar
+    loadMessages();
+});
+
+    </script>
+</body>
+</html>

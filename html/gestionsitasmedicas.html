@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Citas Médicas</title>
+    <link rel="stylesheet" href="../css/estillo6.css">
+    <script src="../js/citasmedicas.js"></script>
+    <script src="../js/registrarsepersonalmedico.js"></script>
+</head>
+
+<body>
+    <form id="formCita">
+        <label>ID Cita</label>
+        <input type="text" id="idCita">
+
+        <label for="fecha">Fecha</label>
+        <input type="datetime-local" id="fecha" required>
+
+        <label for="especialidad">Especialidad</label>
+        <select id="selectEspecialidad" onchange="seleccionarMedico()">
+            <option value="" disabled selected>Elige una especialidad</option>
+        </select>
+
+        <label for="medico">Médico</label>
+        <select id="selectMedico" required>
+            <option value="" disabled selected>Selecciona un médico</option>
+        </select>
+
+        <button type="button" onclick="guardarCita()">Guardar Cita</button>
+        <button type="button" onclick="limpiarFormulario()">Cancelar</button>
+    </form>
+
+    <table id="tablaCitas">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Médico</th>
+                <th>Especialidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+
+</html>

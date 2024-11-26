@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Facturas</title>
+    <link rel="stylesheet" href="../css/estolos10.css">
+    <script src="../js/consultafactura.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Consultar Facturas</h1>
+
+        <!-- Formulario para consultar facturas -->
+        <form id="search-form">
+            <label for="search-input">Buscar por ID, Estado de Pago o Fecha de Vencimiento:</label>
+            <input type="text" id="search-input" placeholder="Escribe tu búsqueda">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <!-- Contenedor para mostrar facturas -->
+        <div id="invoice-list-container"></div>
+    </div>
+
+    <script src="factura-consultar.js"></script>
+</body>
+
+</html>

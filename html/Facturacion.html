@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura y Gestión de Pagos</title>
+    <link rel="stylesheet" href="../css/estolos10.css">
+    <script src="../js/facturas.js"></script>
+   
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generar Factura y Gestión de Pagos</h1>
+        <form action="#" method="post" id="invoice-form">
+            <label for="invoice-id">Identificación de la Factura:</label>
+            <input type="text" id="invoice-id" name="invoice-id" value="INV-123456" readonly required>
+
+            <label for="amount">Monto para Pagar (en $):</label>
+            <input type="number" id="amount" name="amount" required>
+
+            <label for="issue-date">Fecha de Emisión:</label>
+            <input type="text" id="issue-date" name="issue-date" value="" readonly required>
+
+            <label for="payment-method">Método de Pago:</label>
+            <select id="payment-method" name="payment-method" required>
+                <option value="efectivo">Efectivo</option>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="transferencia">Transferencia</option>
+            </select>
+
+            <label for="payment-status">Estado de Pago:</label>
+            <select id="payment-status" name="payment-status" required>
+                <option value="pendiente">Pendiente</option>
+                <option value="pagado">Pagado</option>
+                <option value="anulado">Anulado</option>
+            </select>
+
+            <label for="service-concept">Concepto del Servicio:</label>
+            <input type="text" id="service-concept" name="service-concept" required>
+
+            <label for="discount">Descuento (%):</label>
+            <input type="number" id="discount" name="discount" min="0" max="100" placeholder="Opcional">
+
+            <label for="due-date">Fecha de Vencimiento:</label>
+            <input type="text" id="due-date" name="due-date" value="" readonly>
+
+            <button type="submit">Generar Factura</button>
+        </form>
+    </div>
+</body>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicación entre Pacientes y Personal Médico</title>
+    <link rel="stylesheet" href="../css/estilos8.css">
+    <script src="../js/enviarmensajemedico.js"></script>
+    <script src="../js/personalmedico.js"></script>
+    <script src="../js/registrarsepersonalmedico.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Enviar Mensaje</h1>
+        <form id="message-form">
+            <label for="message-id">ID de Mensaje:</label>
+            <input type="text" id="message-id" name="message-id" readonly required>
+
+            <label for="sender">Remitente:</label>
+            <input type="text" id="sender" name="sender" placeholder="Tu nombre" required>
+
+            <label for="recipient">Destinatario (Médico):</label>
+            <select id="recipient" name="recipient" required>
+                <option value="" disabled selected>Selecciona un médico</option>
+            </select>
+
+            <label for="message-date">Fecha y Hora:</label>
+            <input type="text" id="message-date" name="message-date" readonly required>
+
+            <label for="message-content">Mensaje:</label>
+            <textarea id="message-content" name="message-content" rows="5" placeholder="Escribe tu mensaje aquí..."
+                required></textarea>
+
+            <button type="button" id="send-message">Enviar Mensaje</button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

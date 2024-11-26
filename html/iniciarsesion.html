@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesion</title>
+    <link rel="stylesheet" href="../css/estilos2.css">
+    <script src="../js/iniciarsesion.js"></script>
+    <script src="../js/registrarse.js"></script>
+    <script src="../js/utilidades.js"></script>
+</head>
+
+<body>
+    <h1>Iniciar Sesión</h1>
+
+    <form id="loginForm">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario">
+
+        <label for="contraseña">Contraseña</label>
+        <input type="password" id="contraseña" name="contraseña">
+
+        <label for="tipousuario">Tipo de Usuario</label>
+        <select id="tipousuario" name="tipousuario">
+            <option value="paciente">Paciente</option>
+            <option value="personalMedico">Personal Médico</option>
+        </select>
+
+
+
+    </form>
+
+    <button onclick="iniciarSesion()">Iniciar Sesión</button>
+    <button onclick="window.location.href ='../index.html'">Cancelar</button>
+
+    <div id="mensajeError"></div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Historial Médico</title>
+    <link rel="stylesheet" href="../css/estilos9.css">
+    <script src="../js/gestionarhistorialmedico.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Seguimiento de Historial Médico</h1>
+        <div id="doctor-only">
+            <form action="#" method="post" id="medical-history-form" enctype="multipart/form-data">
+                <label for="history-id">Identificación de Historial Médico:</label>
+                <input type="text" id="history-id" name="history-id" readonly required>
+
+                <label for="consultation-date">Fecha de Consulta:</label>
+                <input type="date" id="consultation-date" name="consultation-date" required>
+
+                <label for="diagnosis">Diagnóstico:</label>
+                <textarea id="diagnosis" name="diagnosis" rows="4" placeholder="Escribe el diagnóstico..."
+                    required></textarea>
+
+                <label for="treatment">Tratamiento:</label>
+                <textarea id="treatment" name="treatment" rows="4" placeholder="Escribe el tratamiento..."
+                    optional></textarea>
+
+                <label for="doctor-notes">Notas Adicionales del Médico:</label>
+                <textarea id="doctor-notes" name="doctor-notes" rows="4" placeholder="Notas adicionales del médico..."
+                    optional></textarea>
+
+                <label for="attachments">Adjuntar Imágenes o Documentos (PDF/JPG):</label>
+                <input type="file" id="attachments" name="attachments" accept=".pdf,.jpg,.jpeg" multiple>
+
+                <button type="submit">Guardar Historial Médico</button>
+            </form>
+            <button type="button" id="consult-history">Consultar Historial</button>
+            <select id="select-history-id">
+                <option value="" disabled selected>Selecciona un ID de Historial</option>
+            </select>
+        </div>
+    </div>
+    <script>
+
+        // Generar ID de historial médico
+        const historyIdField = document.getElementById('history-id');
+        historyIdField.value = 'HIST-' + Math.floor(Math.random() * 1000000);
+
+        // Fecha de consulta por defecto 
+        const consultationDateField = document.getElementById('consultation-date');
+        const today = new Date().toISOString().split('T')[0]; // Formato YYYY-MM-DD
+        consultationDateField.value = today;
+
+    </script>
+
+</body>
+
+</html>

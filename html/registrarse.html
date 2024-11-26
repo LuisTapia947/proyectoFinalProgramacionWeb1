@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="../css/estilos3.css">
+    <script src="../js/pasiente.js"></script>
+    <script src="../js/registrarse.js"></script>
+    <script src="../js/utilidades.js"></script>
+</head>
+
+<body>
+
+    <h1 >Formulario de Registro</h1>
+
+    <form>
+
+        <label for="identificacion">Número de Identificación</label>
+        <input type="text" id="identificacion" name="identificacion" pattern="^\d{10}$" required
+            placeholder="Ej. 1030234567">
+
+        <label for="nombre">Nombre Completo</label>
+        <input type="text" id="nombre" name="nombre" pattern="[A-Za-z\s]+" required placeholder="Ej. nombre apellido">
+
+        <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" name="correo" required>
+
+        <label for="telefono">Teléfono de Contacto</label>
+        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" required placeholder="Ej. 324876543">
+
+        <label for="fecha-registro">Fecha de Registro</label>
+        <input type="text" id="fecha-registro" name="fecha-registro" value="" readonly required>
+
+        
+        <label for="usuario">usuario</label>
+        <input type="text" id="usuario" placeholder="nombre123" required>
+
+        <label for="contraseña">Contraseña</label>
+        <input type="password" id="contraseña" name="contraseña" required placeholder="Ingrese su contraseña">
+
+           <button onclick="guardar()">Guardar</button>
+
+    </form>
+    <script>
+        document.getElementById('fecha-registro').value = new Date().toLocaleDateString('es-ES');
+    </script>
+</body>
+
+</html>

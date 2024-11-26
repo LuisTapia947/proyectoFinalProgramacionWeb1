@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse medicos</title>
+    <link rel="stylesheet" href="../css/estilos3.css">
+    <script src="../js/registrarsepersonalmedico.js"></script>
+    <script src="../js/utilidades.js"></script>
+    <script src="../js/gestionarespecialidadesmedicasas.js"></script>
+    <script src="../js/personalmedico.js"></script>
+</head>
+
+<body>
+    <h1 style="margin-top: 200px;">Formulario de Registro</h1>
+
+    <form>
+
+        <label>Número de Identificación</label>
+        <input type="text" id="idMedico" name="idMedico" pattern="^\d{10}$" required placeholder="Ej. 1030234567">
+
+        <label>Nombre Completo</label>
+        <input type="text" id="nombre" name="nombre" pattern="[A-Za-z\s]+" required placeholder="Ej. nombre apellido">
+
+        <label>LicenciaProfecional</label>
+        <input type="text" id="LicenciaProfecional" name="LicenciaProfecional" required>
+
+        <label>Especialidad medica</label>
+        <select id="selectEspecialidades">
+            <option value="" disabled selected>Elige una opción</option>
+        </select>
+
+        <label>Teléfono de Contacto</label>
+        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" required placeholder="Ej. 324876543">
+
+        <label>Correo</label>
+        <input type="email" id="correo" name="correo" pattern="^[A-Za-z\s]+@gmail\.com$" required >
+
+        <label>Usuario</label>
+        <input type="text" id="usuario" placeholder="nombre123" required>
+
+        <label>Contraseña</label>
+        <input type="password" id="contraseña" name="contraseña" required placeholder="Ingrese su contraseña">
+
+
+    </form>
+    <button onclick="guardar()">Guardar</button>
+
+    <script>
+        
+    </script>
+</body>
+
+</html>
